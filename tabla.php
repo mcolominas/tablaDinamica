@@ -23,19 +23,19 @@
       //creacion tabla y su contenido
       echo "<table>";
       for($fila = 0; $fila < $cantFilaTablero+2; $fila ++){
+        $fila_actual = getStringOfCode($fila);
         echo "<tr>";
         for($columna = 0; $columna < $cantColumnaTablero+2; $columna ++){
-          $columna_actual = getStringOfCode($columna);
           //esquinas
           if($fila == 0 && $columna == 0 || $fila == $cantFilaTablero+1 && $columna == $cantColumnaTablero+1  || $fila == 0 && $columna == $cantColumnaTablero+1  || $fila == $cantFilaTablero+1 && $columna == 0)
             echo "<td></td>";
           //arriba y abajo
           else if($fila == 0 || $fila == $cantFilaTablero+1){
-            echo "<td>$columna_actual</td>";
+            echo "<td>$columna</td>";
           }
           //derecha y izquierda
           else if($columna == 0 || $columna == $cantColumnaTablero+1)
-            echo "<td>$fila</td>";
+            echo "<td>$fila_actual</td>";
           //contenido ajedrez
           else{
             if(($fila + $columna) % 2 == 0)
